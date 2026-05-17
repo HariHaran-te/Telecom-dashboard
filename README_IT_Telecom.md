@@ -1,4 +1,4 @@
-##Telecom Dashboard
+TELECOM DASHBOARD
 
 Concise, browser-first dashboard for monitoring telecom infrastructure, operators, and real-time alerts.
 
