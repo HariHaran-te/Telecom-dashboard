@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telecom Dashboard</title>
+  <meta name="description" content="Telecom Network Monitoring Dashboard — Monitor, Analyze, Optimize across all operators." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <!-- Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ==================== LOGIN OVERLAY ==================== -->
+  <div id="login-overlay" class="login-overlay active">
+    <div id="login-root"></div>
+  </div>
+
+  <!-- ==================== APP SHELL ==================== -->
+  <div id="app-shell" class="app-shell hidden">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon"><i class="fa-solid fa-tower-cell"></i></div>
+        <div class="brand-text">
+          <span class="brand-name">Telecom</span>
+          <span class="brand-sub">Dashboard</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard"       class="nav-item" id="nav-dashboard">
+          <i class="fa-solid fa-gauge-high"></i><span>Dashboard</span>
+        </a>
+        <a href="#operators"       class="nav-item" id="nav-operators">
+          <i class="fa-solid fa-building"></i><span>Operators</span>
+        </a>
+        <a href="#network-map"     class="nav-item" id="nav-network-map">
+          <i class="fa-solid fa-map-location-dot"></i><span>Network Map</span>
+        </a>
+        <a href="#alerts"          class="nav-item" id="nav-alerts">
+          <i class="fa-solid fa-bell"></i><span>Alerts</span>
+          <span class="badge" id="alert-badge">4</span>
+        </a>
+        <a href="#settings"        class="nav-item" id="nav-settings">
+          <i class="fa-solid fa-gear"></i><span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" id="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="main-wrapper">
+      <!-- Top header bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebar-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="global-search" placeholder="Search…" />
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" title="Notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="dot-badge"></span>
+          </button>
+          <button class="icon-btn" title="Settings" onclick="location.hash='settings'">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <div class="user-chip">
+            <div class="avatar">A</div>
+            <span>Admin</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic page content -->
+      <main class="page-content" id="page-content"></main>
+    </div>
+  </div>
+
+
+  <!-- Toast container -->
+  <div id="toast-container"></div>
+
+  <!-- ==================== JS Modules ==================== -->
+  <script src="js/firebase.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="pages/login.js"></script>
+  <script src="pages/dashboard.js"></script>
+  <script src="pages/operators.js"></script>
+  <script src="pages/operator-detail.js"></script>
+  <script src="pages/network-map.js"></script>
+  <script src="pages/alerts.js"></script>
+  <script src="pages/reports.js"></script>
+  <script src="pages/settings.js"></script>
+  <script src="js/router.js"></script>
+</body>
+</html>
